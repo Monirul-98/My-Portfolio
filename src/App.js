@@ -1,15 +1,18 @@
-import About from "./components/Home/About/About";
-import Header from "./components/Home/Header";
-import Projects from "./components/Home/Projects";
 import Navbar from "./components/Shared/Navbar";
+import { Routes, Route } from "react-router-dom";
+import Home from "./components/Home/Home";
+import Blogs from "./components/Blogs/Blogs";
 
 function App() {
   return (
     <div>
       <Navbar></Navbar>
-      <Header></Header>
-      <About></About>
-      <Projects></Projects>
+
+      <Routes>
+        <Route path="/" element={<Home></Home>}></Route>
+        <Route path="/home" element={<Home></Home>}></Route>
+        <Route path="/blogs" element={<Blogs></Blogs>}></Route>
+      </Routes>
     </div>
   );
 }

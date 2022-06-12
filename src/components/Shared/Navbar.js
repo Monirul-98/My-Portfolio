@@ -1,9 +1,29 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 const Navbar = () => {
+  const menuitems = (
+    <>
+      <li>
+        <Link to="/">Home</Link>
+      </li>
+      <li>
+        <HashLink to="/home#projects">Projects</HashLink>
+      </li>
+      <li>
+        <HashLink to="/home#about">About</HashLink>
+      </li>
+      <li>
+        <Link to="/blogs">Blogs</Link>
+      </li>
+      <li>
+        <HashLink to="/home#contact">Contact me</HashLink>
+      </li>
+    </>
+  );
   return (
-    <div className="navbar bg-[#0a192f] text-gray-300">
+    <div className="navbar bg-[#0a192f] text-gray-300 fixed z-50">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabindex="0" className="btn btn-ghost lg:hidden">
@@ -26,18 +46,7 @@ const Navbar = () => {
             tabindex="0"
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
-            <li>
-              <a>Home</a>
-            </li>
-            <li tabindex="0">
-              <a className="justify-between">About</a>
-            </li>
-            <li>
-              <a>Projects</a>
-            </li>
-            <li>
-              <a>Contact me</a>
-            </li>
+            {menuitems}
           </ul>
         </div>
         <a className="btn btn-ghost normal-case text-xl">
@@ -45,20 +54,7 @@ const Navbar = () => {
         </a>
       </div>
       <div className="navbar-end hidden lg:flex">
-        <ul className="menu menu-horizontal p-0">
-          <li>
-            <a>Home</a>
-          </li>
-          <li tabindex="0">
-            <a>About</a>
-          </li>
-          <li>
-            <a>Projects</a>
-          </li>
-          <li>
-            <a>Contact me</a>
-          </li>
-        </ul>
+        <ul className="menu menu-horizontal p-0">{menuitems}</ul>
       </div>
     </div>
   );
